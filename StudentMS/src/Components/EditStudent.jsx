@@ -25,7 +25,7 @@ const EditStudent = () => {
 
         axios.get('http://localhost:3000/auth/student/'+id)
         .then(result => {
-            setEmployee({
+            setStudent({
                 ...student,
                 name: result.data.Result[0].name,
                 email: result.data.Result[0].email,
@@ -63,7 +63,7 @@ const EditStudent = () => {
               placeholder="Enter Name"
               value={student.name}
               onChange={(e) =>
-                setEmployee({ ...student, name: e.target.value })
+                setStudent({ ...student, name: e.target.value })
               }
             />
           </div>
@@ -79,7 +79,7 @@ const EditStudent = () => {
               autoComplete="off"
               value={student.email}
               onChange={(e) =>
-                setEmployee({ ...student, email: e.target.value })
+                setStudent({ ...student, email: e.target.value })
               }
             />
           </div>
@@ -95,7 +95,7 @@ const EditStudent = () => {
               autoComplete="off"
               value={student.salary}
               onChange={(e) =>
-                setEmployee({ ...student, salary: e.target.value })
+                setStudent({ ...student, salary: e.target.value })
               }
             />
           </div>
@@ -111,7 +111,7 @@ const EditStudent = () => {
               autoComplete="off"
               value={student.address}
               onChange={(e) =>
-                setEmployee({ ...student, address: e.target.value })
+                setStudent({ ...student, address: e.target.value })
               }
             />
           </div>
@@ -120,7 +120,7 @@ const EditStudent = () => {
               Category
             </label>
             <select name="category" id="category" className="form-select"
-                onChange={(e) => setEmployee({...student, category_id: e.target.value})}>
+                onChange={(e) => setStudent({...student, category_id: e.target.value})}>
               {category.map((c) => {
                 return <option value={c.id}>{c.name}</option>;
               })}

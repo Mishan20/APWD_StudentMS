@@ -11,7 +11,7 @@ const Employee = () => {
       .get("http://localhost:3000/auth/student")
       .then((result) => {
         if (result.data.Status) {
-          setEmployee(result.data.Result);
+          setStudent(result.data.Result);
         } else {
           alert(result.data.Error);
         }
@@ -54,7 +54,7 @@ const Employee = () => {
                 <td>
                   <img
                     src={`http://localhost:3000/Images/` + e.image}
-                    className="employee_image"
+                    className="student_image"
                   />
                 </td>
                 <td>{e.email}</td>

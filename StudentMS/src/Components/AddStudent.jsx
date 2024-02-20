@@ -32,6 +32,7 @@ const AddStudent = () => {
     const formData = new FormData();
     formData.append('name', student.name);
     formData.append('email', student.email);
+    formData.append('password', student.password);
     formData.append('address', student.address);
     formData.append('image', student.image);
     formData.append('category_id', student.category_id);
@@ -62,7 +63,7 @@ const AddStudent = () => {
               id="inputName"
               placeholder="Enter Name"
               onChange={(e) =>
-                setEmployee({ ...student, name: e.target.value })
+                setStudent({ ...student, name: e.target.value })
               }
             />
           </div>
@@ -77,10 +78,26 @@ const AddStudent = () => {
               placeholder="Enter Email"
               autoComplete="off"
               onChange={(e) =>
-                setEmployee({ ...student, email: e.target.value })
+                setStudent({ ...student, email: e.target.value })
               }
             />
           </div>
+
+          <div className="col-12">
+            <label for="inputPassword4" className="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control rounded-0"
+              id="inputPassword4"
+              placeholder="Enter Password"
+              onChange={(e) =>
+                setStudent({ ...student, password: e.target.value })
+              }
+            />
+          </div>
+
           <div className="col-12">
             <label for="inputAddress" className="form-label">
               Address
@@ -92,7 +109,7 @@ const AddStudent = () => {
               placeholder="1234 Main St"
               autoComplete="off"
               onChange={(e) =>
-                setEmployee({ ...student, address: e.target.value })
+                setStudent({ ...student, address: e.target.value })
               }
             />
           </div>
