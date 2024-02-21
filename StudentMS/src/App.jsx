@@ -10,13 +10,20 @@ import Profile from './Components/Profile'
 import AddCategory from './Components/AddCategory'
 import AddStudent from './Components/AddStudent'
 import EditStudent from './Components/EditStudent'
+// import PrivateRoute from './Components/PrivateRoute'
+import Start from './Components/Start'
+import StudentLogin from './Components/StudentLogin'
+import StudentDetail from './Components/StudentDetails'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<Start />}></Route>
         <Route path='/adminlogin' element={<Login />}></Route>
-        <Route path='/dashboard' element={<Dashboard />}>
+        <Route path='/student_login' element={<StudentLogin />}></Route>
+        <Route path='/student_detail/:id' element={<StudentDetail />}></Route>
+        <Route path='/dashboard' element={<Dashboard /> }>
           <Route path='' element={<Home />}></Route>
           <Route path='/dashboard/student' element={<Student />}></Route>
           <Route path='/dashboard/category' element={<Category />}></Route>

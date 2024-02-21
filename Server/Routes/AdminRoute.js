@@ -57,8 +57,8 @@ const upload = multer({
 // end imag eupload 
 
 router.post('/add_student',upload.single('image'), (req, res) => {
-    const sql = `INSERT INTO employee 
-    (name,email, address,image, category_id) 
+    const sql = `INSERT INTO student
+    (name,email,password, address,image, category_id) 
     VALUES (?)`;
     bcrypt.hash(req.body.password, 10, (err, hash) => {
         if(err) return res.json({Status: false, Error: "Query Error"})

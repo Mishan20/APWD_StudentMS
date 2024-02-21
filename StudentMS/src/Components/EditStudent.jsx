@@ -83,22 +83,6 @@ const EditStudent = () => {
               }
             />
           </div>
-          <div className='col-12'>
-            <label for="inputSalary" className="form-label">
-              Salary
-            </label>
-            <input
-              type="text"
-              className="form-control rounded-0"
-              id="inputSalary"
-              placeholder="Enter Salary"
-              autoComplete="off"
-              value={student.salary}
-              onChange={(e) =>
-                setStudent({ ...student, salary: e.target.value })
-              }
-            />
-          </div>
           <div className="col-12">
             <label for="inputAddress" className="form-label">
               Address

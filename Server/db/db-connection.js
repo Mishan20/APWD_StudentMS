@@ -1,19 +1,21 @@
-import mysql2 from 'mysql2';
+import mysql from 'mysql'
 
-let connection;
-const con = mysql2.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'RanGa@$Sh#123%',
-    database: 'studentms'
+const con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "student_m_system",
+    port: 3308,
 })
+
 con.connect(function(err) {
     if(err) {
-        console.log('Error in connection');
-    }else{
-        console.log('Database connected');
-    
+        console.log("connection error")
+    } else {
+        console.log("Database Connected")
     }
 })
 
+
 export default con;
+
