@@ -49,7 +49,7 @@ const Employee = () => {
           </thead>
           <tbody>
             {student.map((e) => (
-              <tr>
+              <tr key={e.id}>
                 <td>{e.name}</td>
                 <td>
                   <img

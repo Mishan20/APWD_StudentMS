@@ -34,7 +34,7 @@ const Home = () => {
     axios.get('http://localhost:3000/auth/student_count')
     .then(result => {
       if(result.data.Status) {
-        setstudentTotal(result.data.Result[0].employee)
+        setstudentTotal(result.data.Result[0].student)
       }
     })
   }
