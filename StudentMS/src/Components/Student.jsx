@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Category from "./Category";
 
-const Employee = () => {
+
+const Student = () => {
   const [student, setStudent] = useState([]);
   const navigate = useNavigate()
 
@@ -43,6 +45,7 @@ const Employee = () => {
               <th>Name</th>
               <th>Image</th>
               <th>Email</th>
+              <th>Course ID</th>
               <th>Address</th>
               <th>Action</th>
             </tr>
@@ -52,12 +55,14 @@ const Employee = () => {
               <tr key={e.id}>
                 <td>{e.name}</td>
                 <td>
-                  <img
+                  <img width={50} height={50}
                     src={`http://localhost:3000/Images/` + e.image}
                     className="student_image"
+                    alt="Images"
                   />
                 </td>
                 <td>{e.email}</td>
+                <td>{e.category_id}</td>
                 <td>{e.address}</td>
                 <td>
                   <Link
@@ -82,4 +87,4 @@ const Employee = () => {
   );
 };
 
-export default Employee;
+export default Student;

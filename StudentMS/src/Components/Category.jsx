@@ -27,6 +27,7 @@ const Category = () => {
                 <thead>
                     <tr>
                         <th>Name</th>
+                        <th>ID</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,7 @@ const Category = () => {
                         category.map(c => (
                             <tr>
                                 <td>{c.name}</td>
+                                <td>{c.id}</td>
                             </tr>
                         ))
                     }
@@ -46,3 +48,4 @@ const Category = () => {
 }
 
 export default Category
+
