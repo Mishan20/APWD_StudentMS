@@ -5,7 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const AdminRegister= () => {
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -17,10 +17,10 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3000/auth/adminlogin", values)
+      .post("http://localhost:3000/auth/admin_register", values)
       .then((result) => {
-        if (result.data.loginStatus) {
-          navigate("/dashboard");
+        if (result.data.registerStatus) {
+          navigate("/adminlogin");
         } else {
           setError(result.data.Error);
         }
@@ -32,7 +32,7 @@ const Login = () => {
     <div className="d-flex justify-content-center align-items-center vh-100 loginPage">
       <div className="p-3 rounded w-25 border loginForm">
         <div className="text-warning">{error && error}</div>
-        <h2>Login Page</h2>
+        <h2>Register Page</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email">
@@ -64,7 +64,7 @@ const Login = () => {
           </div>
 
           <button className="btn btn-success w-100 rounded-0 mb-2">
-            Login
+            Register
           </button>
 
           <div className="mb-1">
@@ -73,8 +73,8 @@ const Login = () => {
               You are Agree with terms & conditions
             </label>
           </div>
-          <button className="btn btn-success w-100 d-block  rounded-0 mb-2" onClick={() => {navigate('/admin_register')}}>
-            Admin Register
+          <button className="btn btn-success w-100 d-block  rounded-0 mb-2" onClick={() => {navigate('/adminlogin')}}>
+            Admin Login
           </button>
         </form>
       </div>
@@ -82,4 +82,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminRegister;

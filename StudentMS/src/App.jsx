@@ -14,6 +14,7 @@ import EditStudent from './Components/EditStudent'
 import Start from './Components/Start'
 import StudentLogin from './Components/StudentLogin'
 import StudentDetail from './Components/StudentDetails'
+import AdminRegister from './Components/AdminRegister'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/' element={<Start />}></Route>
         <Route path='/adminlogin' element={<Login />}></Route>
         <Route path='/student_login' element={<StudentLogin />}></Route>
+        <Route path='/admin_register' element={<AdminRegister />}></Route>
         <Route path='/student_detail/:id' element={<StudentDetail />}></Route>
         <Route path='/dashboard' element={<Dashboard /> }>
           <Route path='' element={<Home />}></Route>

@@ -38,7 +38,20 @@ const Home = () => {
       }
     })
   }
+
+  const handleDelete = (id) => {
+    axios.delete('http://localhost:3000/auth/delete_admin/'+id)
+    .then(result => {
+        if(result.data.Status) {
+            window.location.reload()
+        } else {
+            alert(result.data.Error)
+        }
+    })
+  } 
   
+
+
   return (
     <div>
       <div className='p-3 d-flex justify-content-around mt-3'>
@@ -79,11 +92,7 @@ const Home = () => {
                   <td>{a.email}</td>
                   <td>
                   <button
-                    className="btn btn-info btn-sm me-2">
-                    Edit
-                  </button>
-                  <button
-                    className="btn btn-warning btn-sm" >
+                    className="btn btn-warning btn-sm" onClick={() => handleDelete(a.id)}>
                     Delete
                   </button>
                   </td>

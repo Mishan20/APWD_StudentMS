@@ -7,6 +7,16 @@ import path from "path";
 
 const router = express.Router();
 
+router.post("/admin_register", (req, res) => {
+    const sql = "INSERT INTO admin (email, password) VALUES (?, ?)";
+    con.query(sql, [req.body.email, req.body.password], (err, result) => {
+        if (err) return res.json({ registerStatus: false, Error: "Query error" });
+        return res.json({ registerStatus: true });
+        }
+    );
+});
+    
+
 router.post("/adminlogin", (req, res) => {
   const sql = "SELECT * from admin Where email = ? and password = ?";
   con.query(sql, [req.body.email, req.body.password], (err, result) => {
@@ -25,6 +35,15 @@ router.post("/adminlogin", (req, res) => {
     }
   });
 });
+
+router.delete('/delete_admin/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = "delete from admin where id = ?"
+    con.query(sql,[id], (err, result) => {
+        if(err) return res.json({Status: false, Error: "Query Error"+err})
+        return res.json({Status: true, Result: result})
+    })
+})
 
 router.get('/category', (req, res) => {
     const sql = "SELECT * FROM category";
